@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- suppress AndroidDomInspection -->
+<!--suppress AndroidDomInspection -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.gaurav.bidshare" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AuctionWindow"
+            android:label="Auction"></activity>
+        <activity
+            android:name=".SignUpWindow"
+            android:label="@string/title_activity_sign_up_window" >
+        </activity>
+        <activity
+            android:name=".ForgetPasswordWindow"
+            android:label="@string/title_activity_forget_password_window" >
+        </activity>
+        <activity
+            android:name=".ForgetPasswordWindowVerification"
+            android:label="@string/title_activity_forget_password_window_verification" >
+        </activity>
+        <activity
+            android:name=".AfterLoginWindow"
+            android:label="@string/title_activity_after_login_window" >
+        </activity>
+        <activity
+            android:name=".ShareFileWindow"
+            android:label="@string/title_activity_share_file_window" >
+        </activity>
+
+        <activity
+            android:name=".MyRunner"
+            android:label="@string/title_activity_my_runner" >
+        </activity>
+        <activity
+            android:name=".FilePicker"
+            android:label="@string/title_activity_file_picker" >
+        </activity>
+    </application>
+
+</manifest>

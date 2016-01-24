@@ -1,0 +1,117 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context="com.example.gaurav.bidshare.AuctionWindow" tools:ignore="MergeRootFrame" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30dp"
+            android:id="@+id/item"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginTop="60dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="196dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/itemimage"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/desc" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="200dp"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/bidamount"
+                android:layout_weight="0.5"
+                android:layout_marginLeft="30dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Place Bid"
+                android:id="@+id/bid"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="05"
+                android:onClick="PlaceBid" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="1"
+            android:background="#ccbbcc">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bidder"
+                android:textSize="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.60" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:id="@+id/maxbid"
+                android:textSize="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.20"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:id="@+id/basebid"
+                android:textSize="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.20"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

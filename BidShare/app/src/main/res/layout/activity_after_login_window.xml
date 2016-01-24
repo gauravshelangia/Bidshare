@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.gaurav.bidshare.AfterLoginWindow">
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:text="BidShare"
+        android:textSize="60dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textview"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:text="Share Files"
+        android:textSize="20dp"
+        android:layout_marginTop="180dp"
+        android:id="@+id/ShareFile"
+        android:onClick="sharefile"
+        />
+
+        <Button
+            android:text="Take Part in Auction"
+            android:layout_width="fill_parent"
+            android:textSize="20dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="260dp"
+            android:layout_weight="0.5"
+            android:id="@+id/Auction"
+            android:onClick="auction"/>
+
+        <Button
+            android:text="Create New Auction"
+            android:layout_width="fill_parent"
+            android:textSize="20dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="340dp"
+
+            android:layout_weight="0.5"/>
+
+</RelativeLayout>

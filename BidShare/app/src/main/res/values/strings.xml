@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BidShare</string>
+
+    <string name="welcome">WELCOME</string>
+    <string name="to">To</string>
+    <string name="bidshare">BidShare</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sign_up_window">Sign Up </string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_forget_password_window">Reset Password</string>
+    <string name="title_activity_forget_password_window_verification">
+        Reset Password
+    </string>
+    <string name="title_activity_after_login_window">AfterLoginWindow</string>
+    <string name="title_activity_share_file_window">"BidShare"</string>
+    <string name="title_activity_auction_window">AuctionWindow</string>
+    <string name="title_activity_file_browser_window">FileBrowserWindow</string>
+    <string name="title_activity_my_runner">MyRunner</string>
+    <string name="title_activity_file_picker">FilePicker</string>
+</resources>

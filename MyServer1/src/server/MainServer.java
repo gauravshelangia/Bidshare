@@ -1,0 +1,126 @@
+package server;
+
+import java.io.*;  
+import java.net.*;  
+
+public class MainServer 
+{  
+	static String bidder="Not Available";
+	 static String product="TOYOTA FORTUNER CAR";
+	 final static String IMAGE_TO_SEND = "file.jpeg";  // you may change this
+	 final static String FILE_TO_SEND = "Manufacturer:Toyota Motor Thailand , 2.5 G VNTurbo Diesel (KUN60) with TRD Sportivo body kits .This is one of the best Suv Cars";
+	 String FILE_TO_SHARE = null;
+	static int base_bid=20;
+	static int MAX_BID=base_bid;
+	
+	public static void main(String[] args) throws IOException
+	{  
+		
+	
+		int SOCKET_PORT = 12002;
+		ServerSocket ss=new ServerSocket(SOCKET_PORT); 
+		System.out.println("Waiting...");
+		
+		while(true)
+		{		
+		     try
+		     { 	System.out.println("Waiting...");
+			     Socket s=ss.accept();//establishes connection   
+		     	DataInputStream dis=new DataInputStream(s.getInputStream());
+		     	DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+		
+		
+		     	int choice=dis.readInt();
+			
+		     	System.out.println("choice : "+choice);
+		     	
+		     	if(choice==1)
+		     	{
+		     		//DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+		     		PasswordValidator pv = new PasswordValidator();
+		     		String  username=(String)dis.readUTF();
+		     	     String  password=(String)dis.readUTF();
+                        System.out.println("username "+username+" Password "+password);
+			
+	     		     if(pv.validate(username, password))
+     			     	dout.writeUTF("true");
+			     
+	     		     else
+	     		          dout.writeUTF("false");
+	     		    dout.flush();
+	     		}
+	     		
+	     		else if(choice==2)
+	     		{	     		     
+	     		     
+	     			dout.writeUTF(product);
+	     		     dout.writeInt(base_bid);
+	     		     dout.writeUTF(bidder);
+	     		     dout.writeInt(MAX_BID);
+	     		     dout.writeUTF(FILE_TO_SEND);
+	     		    dout.flush();
+	     		     sendFile(IMAGE_TO_SEND,s);
+	     		}
+	     		else if(choice==3)
+	    	    {
+	    	    //select file to share and put its name to  FILE_TO_SHARE
+	    	    	//sendFile(FILE_TO_SHARE);
+	    	    }
+	    	    else if(choice==4)
+	    	    {
+	    	    System.out.println("===================");
+	    	    bidder=(String)dis.readUTF();
+	    	    int currentbid=(int)dis.readInt();
+	    	    	if(currentbid>MAX_BID)
+	    	    	{
+	    	    	MAX_BID=currentbid;
+	    	    	}
+	    	    	
+	    	    	
+	    	    	dout.writeUTF(product);
+	     		dout.writeInt(base_bid);
+	     		dout.writeUTF(bidder);
+	     		dout.writeInt(MAX_BID);
+	    	    	dout.flush();
+	    	    }	
+
+	     		dis.close();
+	     		s.close();  
+	     	}catch(Exception e){e.printStackTrace(); System.exit(1);}  
+		}
+	}
+
+	public static void sendFile(String FILE_TO_SEND, Socket s) throws IOException 
+    {
+    	FileInputStream fis = null;
+	    BufferedInputStream bis = null;
+	    OutputStream os = null;
+
+	    System.out.println("Waiting...");
+    	try 
+    	{
+    		System.out.println("Accepted connection : " + s);
+        
+    		// send file
+    		File myFile = new File (FILE_TO_SEND);
+    		
+    		byte [] mybytearray  = new byte [(int)myFile.length()];
+   			
+   			fis = new FileInputStream(myFile);
+   			bis = new BufferedInputStream(fis);
+  			
+   			bis.read(mybytearray,0,mybytearray.length);
+   			os = s.getOutputStream();
+   			System.out.println("Sending " + FILE_TO_SEND + "(" + mybytearray.length + " bytes)");
+   			os.write(mybytearray,0,mybytearray.length);
+   			os.flush();
+   			System.out.println("Done.");
+   		}
+   			
+   		finally 
+   		{
+   			if (bis != null) bis.close();
+   			if (os != null) os.close();
+   		}    		
+    }
+}  
